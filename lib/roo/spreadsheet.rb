@@ -2,7 +2,7 @@ module Roo
   class Spreadsheet
     class << self
       def open(file, options = {})
-        file = File === file ? file.path : file
+        file = file.respond_to?(:read) ? file.path : file
 
         extension =
           if options[:extension]
